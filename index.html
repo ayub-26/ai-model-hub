@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="bn"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffe600">
+<meta name="description" content="বাংলায় জনপ্রিয় AI মডেল ও অ্যাপ খুঁজুন।">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./app-icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./app-icon.svg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="AI Model Hub">
 <title>AI MODEL HUB – মডেল ও অ্যাপ</title>
 <style>
 :root{--bg:#fffbe6;--tx:#000;--card:#fff;--bd:#000;--y:#ffe600;--p:#ff6fb5;--b:#6ec5ff;--g:#7dff9b;--sh:#000;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -31,7 +39,9 @@ h2{font-size:24px;text-transform:uppercase;margin:26px 0 12px;display:inline-blo
 .empty{border:4px dashed var(--bd);padding:20px;font-weight:800;text-align:center}
 footer{margin-top:34px;border:3px solid var(--bd);padding:10px;font-size:13px;background:var(--card)}
 </style></head><body><div class="w">
-<header><h1>AI Model Hub</h1><p>মডেল ও এআই অ্যাপ — এক জায়গায়। কার্ডের বাটনে চাপ দিলেই সরাসরি খুলবে।</p></header>
+<header><h1>AI Model Hub</h1><p>মডেল ও এআই অ্যাপ — এক জায়গায়। কার্ডের বাটনে চাপ দিলেই সরাসরি খুলবে।</p>
+<button id="installBtn" class="tab" type="button" hidden style="margin-top:14px;background:#7dff9b;color:#000">⬇ অ্যাপ ইনস্টল করুন</button>
+<p id="installHelp" aria-live="polite" style="font-size:13px;margin-top:8px"></p></header>
 <input id="q" type="search" placeholder="খুঁজুন: Claude, ছবি, কোড…" aria-label="খুঁজুন">
 <div class="tabs" id="tabs"></div>
 <div id="out"></div>
@@ -82,4 +92,37 @@ function draw(){
 document.addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;tabs();draw()}});
 $('q').addEventListener('input',draw);
 tabs();draw();
+
+// PWA: সার্ভিস ওয়ার্কার চালু
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .catch(err => console.error("Service worker registration failed:", err));
+  });
+}
+
+// ব্রাউজার সমর্থন করলে ইনস্টল বাটন দেখাও
+let installPrompt = null;
+const installBtn = $("installBtn");
+const installHelp = $("installHelp");
+window.addEventListener("beforeinstallprompt", event => {
+  event.preventDefault();
+  installPrompt = event;
+  installBtn.hidden = false;
+  installHelp.textContent = "এই ডিভাইসে অ্যাপ হিসেবে ইনস্টল করা যাবে।";
+});
+installBtn.addEventListener("click", async () => {
+  if (!installPrompt) {
+    installHelp.textContent = "ব্রাউজারের মেনু থেকে “Install app” বা “Add to Home Screen” নির্বাচন করুন।";
+    return;
+  }
+  installPrompt.prompt();
+  await installPrompt.userChoice;
+  installPrompt = null;
+  installBtn.hidden = true;
+});
+window.addEventListener("appinstalled", () => {
+  installBtn.hidden = true;
+  installHelp.textContent = "AI Model Hub ইনস্টল হয়েছে।";
+});
 </script></body></html>
