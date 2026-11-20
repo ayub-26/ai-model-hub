@@ -1,71 +1,85 @@
-<!doctype html>
-<html lang="bn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080b14">
-  <meta name="description" content="সেরা AI মডেল ও অ্যাপ খুঁজুন, তুলনা করুন এবং আপনার কাজের জন্য সঠিক AI বেছে নিন।">
-  <title>এআই মডেল হাব — আপনার কাজের সঠিক AI খুঁজুন</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-</head>
-<body class="bn">
-  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="AI Model Hub home"><span class="brand-mark">✳</span><span>AI<span class="brand-muted">HUB</span></span></a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#explore">মডেল দেখুন</a><a href="#apps">এআই অ্যাপ</a><a href="#about">পরিচিতি</a>
-    </nav>
-    <div class="top-actions"><span class="live-dot"></span><span class="updated-label">আপডেট · নভেম্বর ২০২৬</span><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☼</button><a class="github-link" href="https://github.com/ayub-26/ai-model-hub" target="_blank" rel="noreferrer">GitHub ↗</a></div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="hero-kicker"><span class="sparkle">✦</span> এআই দুনিয়ার সম্পূর্ণ নির্দেশিকা</div>
-      <h1>আপনার কাজের সঠিক <span class="gradient-text">AI</span><br>খুঁজুন <span class="gradient-text">সহজেই।</span></h1>
-      <p class="hero-copy">সেরা AI মডেল ও শক্তিশালী অ্যাপ সম্পর্কে জানুন। কোনটি কী কাজে ভালো, তুলনা করে নিজের প্রয়োজনের উপযোগী টুল বেছে নিন।</p>
-      <div class="hero-search"><span class="search-icon">⌕</span><input id="heroSearch" type="search" placeholder="মডেল, অ্যাপ বা কাজ খুঁজুন..." autocomplete="off"><kbd>/</kbd><button id="searchButton">খুঁজুন</button></div>
-      <div class="hero-tags"><span>জনপ্রিয়:</span><button data-quick="coding">কোডিং</button><button data-quick="writing">লেখালেখি</button><button data-quick="image">ছবি তৈরি</button><button data-quick="research">গবেষণা</button></div>
-      <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
-    </section>
-
-    <section class="stats-row" aria-label="Directory overview">
-      <div><strong id="modelCount">12+</strong><span>এআই মডেল</span></div><i></i><div><strong id="appCount">14+</strong><span>এআই অ্যাপ</span></div><i></i><div><strong>8</strong><span>ব্যবহারের ক্ষেত্র</span></div><i></i><div><strong>01</strong><span>লক্ষ্য · সঠিক পছন্দ</span></div>
-    </section>
-
-    <section class="section" id="explore">
-      <div class="section-heading"><div><div class="eyebrow">এআই ডিরেক্টরি</div><h2>এআই মডেল দেখুন<span class="heading-dot">.</span></h2><p>বিশ্বের শীর্ষ AI প্রতিষ্ঠানের শক্তিশালী মডেল এক জায়গায়।</p></div><div class="view-toggle" role="group" aria-label="Directory view"><button class="view-btn active" data-view="models">মডেল <span id="modelTabCount">১২</span></button><button class="view-btn" data-view="apps">অ্যাপ <span id="appTabCount">১৪</span></button></div></div>
-      <div class="toolbar"><div class="filter-chips" id="filters"></div><label class="sort-wrap">সাজান <select id="sortSelect"><option value="featured">বিশেষভাবে নির্বাচিত</option><option value="name">নাম অনুযায়ী</option><option value="newest">নতুন আগে</option></select></label></div>
-      <div class="results-line"><span id="resultsLabel">সব মডেল দেখানো হচ্ছে</span><button id="clearFilters" class="clear-btn">ফিল্টার মুছুন ↗</button></div>
-      <div class="card-grid" id="directoryGrid" aria-live="polite"></div>
-      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>কোনো ফলাফল পাওয়া যায়নি</h3><p>অন্য শব্দ দিয়ে খুঁজুন অথবা ফিল্টার মুছে দিন।</p><button class="outline-btn" id="emptyClear">ফিল্টার মুছুন</button></div>
-    </section>
-
-    <section class="compare-section" id="compare">
-      <div class="compare-intro"><div class="eyebrow">সঠিক সিদ্ধান্ত নিন</div><h2>তুলনা করুন<br><span class="gradient-text">পছন্দের AI-গুলো।</span></h2><p>ডিরেক্টরি থেকে সর্বোচ্চ তিনটি মডেল বা অ্যাপ বেছে নিয়ে পাশাপাশি তুলনা করুন।</p><div class="compare-count"><span id="compareCount">0</span> / 3 নির্বাচিত</div></div>
-      <div class="compare-panel" id="comparePanel"><div class="compare-placeholder"><span class="compare-plus">＋</span><strong>তুলনা শুরু করুন</strong><span>যেকোনো কার্ডের তুলনা বাটনে চাপ দিয়ে যোগ করুন।</span></div></div>
-    </section>
-
-    <section class="usecase-section">
-      <div class="section-heading"><div><div class="eyebrow">আপনার প্রয়োজন দিয়ে শুরু করুন</div><h2>আপনি কী করতে চান<span class="heading-dot">?</span></h2><p>আপনার কাজের জন্য উপযোগী AI টুল সরাসরি খুঁজে নিন।</p></div></div>
-      <div class="usecase-grid">
-        <button class="usecase" data-quick="coding"><span class="use-icon purple">⌘</span><b>কোডিং ও তৈরি</b><small>কোড লিখুন, ভুল ঠিক করুন</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="writing"><span class="use-icon blue">✎</span><b>লেখালেখি ও সৃজন</b><small>আইডিয়া, গল্প, কনটেন্ট</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="research"><span class="use-icon green">⌕</span><b>গবেষণা ও শেখা</b><small>সূত্রসহ উত্তর খুঁজুন</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="image"><span class="use-icon orange">▧</span><b>ছবি ও ডিজাইন</b><small>ছবি, শিল্প, ধারণা</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="video"><span class="use-icon pink">▶</span><b>ভিডিও ও অ্যানিমেশন</b><small>ভিডিও তৈরি ও সম্পাদনা</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="voice"><span class="use-icon yellow">♫</span><b>কণ্ঠ ও অডিও</b><small>কথা, গান, শব্দ</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="productivity"><span class="use-icon teal">▦</span><b>কাজের গতি বাড়ান</b><small>পরিকল্পনা, সারাংশ, গুছিয়ে কাজ</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="reasoning"><span class="use-icon violet">✧</span><b>জটিল বিশ্লেষণ</b><small>কঠিন সমস্যা ও বিশ্লেষণ</small><span class="use-arrow">↗</span></button>
-      </div>
-    </section>
-
-    <section class="note-section" id="about"><div class="note-icon">✳</div><div><div class="eyebrow">র‍্যাঙ্কিং সম্পর্কে</div><h3>একটি AI সব কাজের জন্য সেরা নয়।</h3><p>AI-এর সক্ষমতা, মূল্য ও সুবিধা দ্রুত বদলায়। এখানে কাজভিত্তিক পরামর্শ দেওয়া হয়েছে—এটি কোনো চূড়ান্ত র‍্যাঙ্কিং নয়। সর্বশেষ তথ্যের জন্য সংশ্লিষ্ট প্রতিষ্ঠানের ওয়েবসাইট দেখুন।</p></div><a href="https://artificialanalysis.ai/" target="_blank" rel="noreferrer">বেঞ্চমার্ক দেখুন ↗</a></section>
-  </main>
-  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✳</span><span>AI<span class="brand-muted">HUB</span></span></a><span>সঠিক AI বেছে নেওয়া হোক সহজ।</span><span>© 2026 AI Model Hub</span></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="bn"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI MODEL HUB – মডেল ও অ্যাপ</title>
+<style>
+:root{--bg:#fffbe6;--tx:#000;--card:#fff;--bd:#000;--y:#ffe600;--p:#ff6fb5;--b:#6ec5ff;--g:#7dff9b;--sh:#000;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130a;--tx:#fff;--card:#201e12;--bd:#fff;--sh:#fff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#15130a;--tx:#fff;--card:#201e12;--bd:#fff;--sh:#fff;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Courier New",ui-monospace,"Noto Sans Bengali",monospace;line-height:1.5}
+.w{max-width:1100px;margin:auto;padding:0 14px 40px}
+header{margin:22px 0;border:4px solid var(--bd);background:var(--y);color:#000;padding:18px;box-shadow:8px 8px 0 var(--sh)}
+h1{margin:0;font-size:clamp(30px,7vw,56px);text-transform:uppercase;letter-spacing:-1px;line-height:1}
+header p{margin:8px 0 0;font-weight:700}
+input{width:100%;padding:12px;border:4px solid var(--bd);background:var(--card);color:var(--tx);font:inherit;font-weight:700;box-shadow:5px 5px 0 var(--sh);margin-bottom:14px}
+input:focus{outline:none;background:var(--g);color:#000}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.tab{border:3px solid var(--bd);background:var(--card);color:var(--tx);padding:8px 14px;font:inherit;font-weight:800;cursor:pointer;box-shadow:4px 4px 0 var(--sh);text-transform:uppercase}
+.tab.on{background:var(--p);color:#000}
+.tab:active{transform:translate(4px,4px);box-shadow:none}
+h2{font-size:24px;text-transform:uppercase;margin:26px 0 12px;display:inline-block;background:var(--b);color:#000;border:3px solid var(--bd);padding:2px 12px;box-shadow:4px 4px 0 var(--sh)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{border:4px solid var(--bd);background:var(--card);box-shadow:7px 7px 0 var(--sh);padding:14px;display:flex;flex-direction:column;gap:8px}
+.card h3{margin:0;font-size:20px;text-transform:uppercase}
+.by{font-size:13px;font-weight:700;opacity:.75}
+.tags span{display:inline-block;border:2px solid var(--bd);padding:0 7px;font-size:12px;font-weight:800;margin:0 4px 4px 0;background:var(--y);color:#000}
+.tags span.o{background:var(--g)}.tags span.a{background:var(--b)}
+.card p{margin:0;font-size:14px;flex:1}
+.go{display:block;text-align:center;text-decoration:none;font-weight:900;text-transform:uppercase;color:#000;background:var(--p);border:3px solid var(--bd);padding:8px;box-shadow:4px 4px 0 var(--sh)}
+.go:hover{background:var(--g)}.go:active{transform:translate(4px,4px);box-shadow:none}
+.empty{border:4px dashed var(--bd);padding:20px;font-weight:800;text-align:center}
+footer{margin-top:34px;border:3px solid var(--bd);padding:10px;font-size:13px;background:var(--card)}
+</style></head><body><div class="w">
+<header><h1>AI Model Hub</h1><p>মডেল ও এআই অ্যাপ — এক জায়গায়। কার্ডের বাটনে চাপ দিলেই সরাসরি খুলবে।</p></header>
+<input id="q" type="search" placeholder="খুঁজুন: Claude, ছবি, কোড…" aria-label="খুঁজুন">
+<div class="tabs" id="tabs"></div>
+<div id="out"></div>
+<footer>⚠ লিংকগুলো প্রতিটি কোম্পানির অফিসিয়াল সাইটে যায়। কিছু সেবা সাইন-আপ বা পেমেন্ট চাইতে পারে। তথ্য সাধারণ ধারণাভিত্তিক।</footer>
+</div>
+<script>
+// [নাম, কোম্পানি, টাইপ, লাইসেন্স/ধরন, বিবরণ, লিংক]
+const MODELS=[
+["GPT","OpenAI","টেক্সট","ক্লোজড","চ্যাট, কোড ও বিশ্লেষণে বহুমুখী মডেল।","https://chatgpt.com"],
+["Claude","Anthropic","টেক্সট","ক্লোজড","লেখা, কোডিং ও দীর্ঘ ডকুমেন্টের কাজে জনপ্রিয়।","https://claude.ai"],
+["Gemini","Google","টেক্সট","ক্লোজড","টেক্সট, ছবি ও ভিডিও বোঝে — মাল্টিমোডাল।","https://gemini.google.com"],
+["Llama","Meta","টেক্সট","ওপেন","ওপেন-ওয়েট; নিজের মতো চালানো ও কাস্টমাইজ করা যায়।","https://www.llama.com"],
+["Mistral","Mistral AI","টেক্সট","ওপেন","ছোট আকারে দ্রুত ও কম খরচের মডেল।","https://chat.mistral.ai"],
+["DeepSeek","DeepSeek","টেক্সট","ওপেন","যুক্তি, গণিত ও কোডে কম খরচে আলোচিত।","https://chat.deepseek.com"],
+["Qwen","Alibaba","টেক্সট","ওপেন","বহুভাষিক কাজ ও কোডে ভালো।","https://chat.qwen.ai"],
+["Stable Diffusion","Stability AI","ছবি","ওপেন","নিজের পিসিতে চালিয়ে ছবি বানানো যায়।","https://stability.ai"],
+["FLUX","Black Forest Labs","ছবি","ওপেন","স্পষ্ট ও বিস্তারিত ছবি তৈরির মডেল।","https://huggingface.co/black-forest-labs"],
+["Midjourney","Midjourney","ছবি","ক্লোজড","শিল্পসুলভ ডিজাইন ও ছবির জন্য জনপ্রিয়।","https://www.midjourney.com"],
+["Whisper","OpenAI","অডিও","ওপেন","কথা থেকে লেখা (ট্রান্সক্রিপশন) বের করে।","https://github.com/openai/whisper"],
+["ElevenLabs","ElevenLabs","অডিও","ক্লোজড","লেখা থেকে স্বাভাবিক কণ্ঠস্বর তৈরি।","https://elevenlabs.io"]];
+const APPS=[
+["ChatGPT","OpenAI","চ্যাট","অ্যাপ","প্রশ্ন, লেখা, কোড ও ছবি — সব এক চ্যাটে।","https://chatgpt.com"],
+["Claude","Anthropic","চ্যাট","অ্যাপ","ওয়েব, মোবাইল ও ডেস্কটপে এআই সহকারী।","https://claude.ai"],
+["Gemini","Google","চ্যাট","অ্যাপ","Google সেবার সাথে যুক্ত এআই সহকারী।","https://gemini.google.com"],
+["Perplexity","Perplexity","সার্চ","অ্যাপ","উৎসসহ উত্তর দেওয়া এআই সার্চ।","https://www.perplexity.ai"],
+["Copilot","Microsoft","চ্যাট","অ্যাপ","Microsoft-এর এআই সহকারী।","https://copilot.microsoft.com"],
+["NotebookLM","Google","পড়াশোনা","অ্যাপ","নিজের ডকুমেন্ট থেকে সারাংশ ও প্রশ্নোত্তর।","https://notebooklm.google.com"],
+["Cursor","Cursor","কোডিং","অ্যাপ","এআই-সহ কোড এডিটর।","https://cursor.com"],
+["Hugging Face","Hugging Face","হাব","অ্যাপ","হাজার হাজার ওপেন মডেল ও ডেমো খুঁজুন।","https://huggingface.co"],
+["Ollama","Ollama","লোকাল","অ্যাপ","ওপেন মডেল নিজের কম্পিউটারে চালান।","https://ollama.com"],
+["LM Studio","LM Studio","লোকাল","অ্যাপ","সহজ ইন্টারফেসে লোকাল মডেল চালান।","https://lmstudio.ai"],
+["Suno","Suno","অডিও","অ্যাপ","লিখে গান তৈরি করার এআই।","https://suno.com"],
+["Runway","Runway","ভিডিও","অ্যাপ","এআই দিয়ে ভিডিও তৈরি ও এডিট।","https://runwayml.com"]];
+const $=i=>document.getElementById(i);let tab="সব";
+function card(m,app){return '<div class="card"><h3>'+m[0]+'</h3><div class="by">'+m[1]+'</div><div class="tags"><span class="a">'+m[2]+'</span><span class="'+(m[3]=="ওপেন"?"o":"")+'">'+m[3]+'</span></div><p>'+m[4]+'</p><a class="go" href="'+m[5]+'" target="_blank" rel="noopener noreferrer">'+(app?'অ্যাপ খুলুন ↗':'এখনই খুলুন ↗')+'</a></div>'}
+function tabs(){
+ $('tabs').innerHTML=["সব","মডেল","অ্যাপ"].map(t=>'<button class="tab '+(t==tab?'on':'')+'" data-t="'+t+'">'+t+'</button>').join('');
+}
+function draw(){
+ const q=$('q').value.trim().toLowerCase();
+ const f=a=>a.filter(m=>!q||m.slice(0,5).join(' ').toLowerCase().includes(q));
+ let h='';
+ const sec=(title,arr,app)=>arr.length?'<h2>'+title+' ('+arr.length+')</h2><div class="grid">'+arr.map(m=>card(m,app)).join('')+'</div>':'';
+ if(tab!="অ্যাপ")h+=sec('এআই মডেল',f(MODELS),false);
+ if(tab!="মডেল")h+=sec('এআই অ্যাপ',f(APPS),true);
+ $('out').innerHTML=h||'<div class="empty">কিছু পাওয়া যায়নি। অন্য শব্দ লিখুন।</div>';
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-t]');if(b){tab=b.dataset.t;tabs();draw()}});
+$('q').addEventListener('input',draw);
+tabs();draw();
+</script></body></html>
