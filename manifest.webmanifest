@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "AI Model Hub বাংলা",
+  "short_name": "AI Model Hub",
+  "description": "বাংলায় AI মডেল ও অ্যাপ খুঁজুন এবং ব্যবহার করুন।",
+  "lang": "bn",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#fffbe6",
+  "theme_color": "#ffe600",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
