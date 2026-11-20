@@ -4,68 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080b14">
-  <meta name="description" content="Explore the best AI models and apps, compare capabilities, and find the right AI for every task.">
-  <title>AI Model Hub — Find the right AI</title>
+  <meta name="description" content="সেরা AI মডেল ও অ্যাপ খুঁজুন, তুলনা করুন এবং আপনার কাজের জন্য সঠিক AI বেছে নিন।">
+  <title>এআই মডেল হাব — আপনার কাজের সঠিক AI খুঁজুন</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
-<body>
+<body class="bn">
   <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
   <header class="topbar">
     <a class="brand" href="#" aria-label="AI Model Hub home"><span class="brand-mark">✳</span><span>AI<span class="brand-muted">HUB</span></span></a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#explore">Explore</a><a href="#apps">AI Apps</a><a href="#about">About</a>
+      <a href="#explore">মডেল দেখুন</a><a href="#apps">এআই অ্যাপ</a><a href="#about">পরিচিতি</a>
     </nav>
-    <div class="top-actions"><span class="live-dot"></span><span class="updated-label">Updated · Nov 2026</span><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☼</button><a class="github-link" href="https://github.com/ayub-26/ai-model-hub" target="_blank" rel="noreferrer">GitHub ↗</a></div>
+    <div class="top-actions"><span class="live-dot"></span><span class="updated-label">আপডেট · নভেম্বর ২০২৬</span><button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☼</button><a class="github-link" href="https://github.com/ayub-26/ai-model-hub" target="_blank" rel="noreferrer">GitHub ↗</a></div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="hero-kicker"><span class="sparkle">✦</span> YOUR GUIDE TO THE AI UNIVERSE</div>
-      <h1>Find the right <span class="gradient-text">AI</span><br>for <span class="gradient-text">what you do.</span></h1>
-      <p class="hero-copy">Explore leading AI models and powerful apps. Discover what each one does best, compare your favorites, and choose with confidence.</p>
-      <div class="hero-search"><span class="search-icon">⌕</span><input id="heroSearch" type="search" placeholder="Search models, apps, or tasks..." autocomplete="off"><kbd>/</kbd><button id="searchButton">Search</button></div>
-      <div class="hero-tags"><span>Popular:</span><button data-quick="coding">Coding</button><button data-quick="writing">Writing</button><button data-quick="image">Image generation</button><button data-quick="research">Research</button></div>
+      <div class="hero-kicker"><span class="sparkle">✦</span> এআই দুনিয়ার সম্পূর্ণ নির্দেশিকা</div>
+      <h1>আপনার কাজের সঠিক <span class="gradient-text">AI</span><br>খুঁজুন <span class="gradient-text">সহজেই।</span></h1>
+      <p class="hero-copy">সেরা AI মডেল ও শক্তিশালী অ্যাপ সম্পর্কে জানুন। কোনটি কী কাজে ভালো, তুলনা করে নিজের প্রয়োজনের উপযোগী টুল বেছে নিন।</p>
+      <div class="hero-search"><span class="search-icon">⌕</span><input id="heroSearch" type="search" placeholder="মডেল, অ্যাপ বা কাজ খুঁজুন..." autocomplete="off"><kbd>/</kbd><button id="searchButton">খুঁজুন</button></div>
+      <div class="hero-tags"><span>জনপ্রিয়:</span><button data-quick="coding">কোডিং</button><button data-quick="writing">লেখালেখি</button><button data-quick="image">ছবি তৈরি</button><button data-quick="research">গবেষণা</button></div>
       <div class="hero-orbit orbit-a"></div><div class="hero-orbit orbit-b"></div>
     </section>
 
     <section class="stats-row" aria-label="Directory overview">
-      <div><strong id="modelCount">12+</strong><span>AI MODELS</span></div><i></i><div><strong id="appCount">14+</strong><span>AI APPS</span></div><i></i><div><strong>8</strong><span>USE CASES</span></div><i></i><div><strong>01</strong><span>MISSION · BETTER CHOICES</span></div>
+      <div><strong id="modelCount">12+</strong><span>এআই মডেল</span></div><i></i><div><strong id="appCount">14+</strong><span>এআই অ্যাপ</span></div><i></i><div><strong>8</strong><span>ব্যবহারের ক্ষেত্র</span></div><i></i><div><strong>01</strong><span>লক্ষ্য · সঠিক পছন্দ</span></div>
     </section>
 
     <section class="section" id="explore">
-      <div class="section-heading"><div><div class="eyebrow">THE MODEL DIRECTORY</div><h2>Explore AI models<span class="heading-dot">.</span></h2><p>Powerful models from the world's leading AI labs.</p></div><div class="view-toggle" role="group" aria-label="Directory view"><button class="view-btn active" data-view="models">Models <span id="modelTabCount">12</span></button><button class="view-btn" data-view="apps">Apps <span id="appTabCount">14</span></button></div></div>
-      <div class="toolbar"><div class="filter-chips" id="filters"></div><label class="sort-wrap">Sort by <select id="sortSelect"><option value="featured">Featured</option><option value="name">Name A–Z</option><option value="newest">Newest</option></select></label></div>
-      <div class="results-line"><span id="resultsLabel">Showing all models</span><button id="clearFilters" class="clear-btn">Clear filters ↗</button></div>
+      <div class="section-heading"><div><div class="eyebrow">এআই ডিরেক্টরি</div><h2>এআই মডেল দেখুন<span class="heading-dot">.</span></h2><p>বিশ্বের শীর্ষ AI প্রতিষ্ঠানের শক্তিশালী মডেল এক জায়গায়।</p></div><div class="view-toggle" role="group" aria-label="Directory view"><button class="view-btn active" data-view="models">মডেল <span id="modelTabCount">১২</span></button><button class="view-btn" data-view="apps">অ্যাপ <span id="appTabCount">১৪</span></button></div></div>
+      <div class="toolbar"><div class="filter-chips" id="filters"></div><label class="sort-wrap">সাজান <select id="sortSelect"><option value="featured">বিশেষভাবে নির্বাচিত</option><option value="name">নাম অনুযায়ী</option><option value="newest">নতুন আগে</option></select></label></div>
+      <div class="results-line"><span id="resultsLabel">সব মডেল দেখানো হচ্ছে</span><button id="clearFilters" class="clear-btn">ফিল্টার মুছুন ↗</button></div>
       <div class="card-grid" id="directoryGrid" aria-live="polite"></div>
-      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>No matches found</h3><p>Try another keyword or clear your filters.</p><button class="outline-btn" id="emptyClear">Clear filters</button></div>
+      <div class="empty-state hidden" id="emptyState"><div>⌕</div><h3>কোনো ফলাফল পাওয়া যায়নি</h3><p>অন্য শব্দ দিয়ে খুঁজুন অথবা ফিল্টার মুছে দিন।</p><button class="outline-btn" id="emptyClear">ফিল্টার মুছুন</button></div>
     </section>
 
     <section class="compare-section" id="compare">
-      <div class="compare-intro"><div class="eyebrow">MAKE THE RIGHT CALL</div><h2>Compare your<br><span class="gradient-text">shortlist.</span></h2><p>Pick up to three models or apps from the directory and see their strengths side by side.</p><div class="compare-count"><span id="compareCount">0</span> / 3 selected</div></div>
-      <div class="compare-panel" id="comparePanel"><div class="compare-placeholder"><span class="compare-plus">＋</span><strong>Your comparison starts here</strong><span>Use the Compare button on any card to add it.</span></div></div>
+      <div class="compare-intro"><div class="eyebrow">সঠিক সিদ্ধান্ত নিন</div><h2>তুলনা করুন<br><span class="gradient-text">পছন্দের AI-গুলো।</span></h2><p>ডিরেক্টরি থেকে সর্বোচ্চ তিনটি মডেল বা অ্যাপ বেছে নিয়ে পাশাপাশি তুলনা করুন।</p><div class="compare-count"><span id="compareCount">0</span> / 3 নির্বাচিত</div></div>
+      <div class="compare-panel" id="comparePanel"><div class="compare-placeholder"><span class="compare-plus">＋</span><strong>তুলনা শুরু করুন</strong><span>যেকোনো কার্ডের তুলনা বাটনে চাপ দিয়ে যোগ করুন।</span></div></div>
     </section>
 
     <section class="usecase-section">
-      <div class="section-heading"><div><div class="eyebrow">START WITH YOUR GOAL</div><h2>What do you want to do<span class="heading-dot">?</span></h2><p>Jump straight to AI tools that shine at your task.</p></div></div>
+      <div class="section-heading"><div><div class="eyebrow">আপনার প্রয়োজন দিয়ে শুরু করুন</div><h2>আপনি কী করতে চান<span class="heading-dot">?</span></h2><p>আপনার কাজের জন্য উপযোগী AI টুল সরাসরি খুঁজে নিন।</p></div></div>
       <div class="usecase-grid">
-        <button class="usecase" data-quick="coding"><span class="use-icon purple">⌘</span><b>Code & build</b><small>Write, debug, ship faster</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="writing"><span class="use-icon blue">✎</span><b>Write & create</b><small>Ideas, stories, content</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="research"><span class="use-icon green">⌕</span><b>Research & learn</b><small>Find answers with sources</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="image"><span class="use-icon orange">▧</span><b>Images & design</b><small>Visuals, art, concepts</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="video"><span class="use-icon pink">▶</span><b>Video & motion</b><small>Generate and edit videos</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="voice"><span class="use-icon yellow">♫</span><b>Voice & audio</b><small>Speech, music, sound</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="productivity"><span class="use-icon teal">▦</span><b>Get productive</b><small>Plan, summarize, organize</small><span class="use-arrow">↗</span></button>
-        <button class="usecase" data-quick="reasoning"><span class="use-icon violet">✧</span><b>Deep thinking</b><small>Complex problems, analysis</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="coding"><span class="use-icon purple">⌘</span><b>কোডিং ও তৈরি</b><small>কোড লিখুন, ভুল ঠিক করুন</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="writing"><span class="use-icon blue">✎</span><b>লেখালেখি ও সৃজন</b><small>আইডিয়া, গল্প, কনটেন্ট</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="research"><span class="use-icon green">⌕</span><b>গবেষণা ও শেখা</b><small>সূত্রসহ উত্তর খুঁজুন</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="image"><span class="use-icon orange">▧</span><b>ছবি ও ডিজাইন</b><small>ছবি, শিল্প, ধারণা</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="video"><span class="use-icon pink">▶</span><b>ভিডিও ও অ্যানিমেশন</b><small>ভিডিও তৈরি ও সম্পাদনা</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="voice"><span class="use-icon yellow">♫</span><b>কণ্ঠ ও অডিও</b><small>কথা, গান, শব্দ</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="productivity"><span class="use-icon teal">▦</span><b>কাজের গতি বাড়ান</b><small>পরিকল্পনা, সারাংশ, গুছিয়ে কাজ</small><span class="use-arrow">↗</span></button>
+        <button class="usecase" data-quick="reasoning"><span class="use-icon violet">✧</span><b>জটিল বিশ্লেষণ</b><small>কঠিন সমস্যা ও বিশ্লেষণ</small><span class="use-arrow">↗</span></button>
       </div>
     </section>
 
-    <section class="note-section" id="about"><div class="note-icon">✳</div><div><div class="eyebrow">A NOTE ON RANKINGS</div><h3>There is no single “best” AI.</h3><p>Benchmarks, pricing, availability, and product features change quickly. Our recommendations are task-based starting points—not a universal ranking. Always check the provider's official site for the latest details.</p></div><a href="https://artificialanalysis.ai/" target="_blank" rel="noreferrer">Explore benchmarks ↗</a></section>
+    <section class="note-section" id="about"><div class="note-icon">✳</div><div><div class="eyebrow">র‍্যাঙ্কিং সম্পর্কে</div><h3>একটি AI সব কাজের জন্য সেরা নয়।</h3><p>AI-এর সক্ষমতা, মূল্য ও সুবিধা দ্রুত বদলায়। এখানে কাজভিত্তিক পরামর্শ দেওয়া হয়েছে—এটি কোনো চূড়ান্ত র‍্যাঙ্কিং নয়। সর্বশেষ তথ্যের জন্য সংশ্লিষ্ট প্রতিষ্ঠানের ওয়েবসাইট দেখুন।</p></div><a href="https://artificialanalysis.ai/" target="_blank" rel="noreferrer">বেঞ্চমার্ক দেখুন ↗</a></section>
   </main>
-  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✳</span><span>AI<span class="brand-muted">HUB</span></span></a><span>Made to make AI easier to choose.</span><span>© 2026 AI Model Hub</span></footer>
+  <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✳</span><span>AI<span class="brand-muted">HUB</span></span></a><span>সঠিক AI বেছে নেওয়া হোক সহজ।</span><span>© 2026 AI Model Hub</span></footer>
   <script src="script.js"></script>
 </body>
 </html>
